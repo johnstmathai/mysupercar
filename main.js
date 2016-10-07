@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 
@@ -21,7 +23,6 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
-sfgsdfg
 
 var port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);

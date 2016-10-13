@@ -1,0 +1,188 @@
+<div class="row">
+   <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+      <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+      {{ successMsg }}
+   </div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+   <h4>Price Range</h4>
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>1 Lakh - 3 Lakh</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>3 Lakh - 5 Lakh</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>5 Lakh - 10 Lakh</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>10 Lakh - 20 Lakh</h5>
+   </div>
+   <!-- /input-group -->   
+</div>
+<div class="col-md-2">
+   <h4>Brand</h4>
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Maruti</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Renault</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Hyundai</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Chevrolet</h5>
+   </div>
+   <!-- /input-group -->  
+</div>
+<div class="col-md-2">
+   <h4>Fuel Type</h4>
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Fuel Type</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Fuel Type</h5>
+   </div>
+   <!-- /input-group -->
+</div>
+<div class="col-md-2">
+   <h4>Vehicle Type</h4>
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Hatchback</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>Sedan</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>SUV</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>MUV</h5>
+   </div>
+   <!-- /input-group --> 
+</div>
+<div class="col-md-2">
+   <h4>Mileage</h4>
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>10 Kmpl - 15 Kmpl</h5>
+   </div>
+   <!-- /input-group -->
+   <div class="input-group">
+      <span class="input-group-addon">
+      <input type="checkbox" aria-label="...">
+      </span>
+      <h5>15 Kmpl and above</h5>
+   </div>
+   <!-- /input-group -->
+</div>
+</div>
+<div class="row">
+   {{# each products }}
+   {{# each this }}
+   <div class="col-xs-6 col-sm-6 col-md-4">
+      <div class="thumbnail">
+         <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
+         <div class="caption" >
+            <h4>{{ this.title }}</h4>
+            <h4 class="text-danger">
+            {{ this.description }}
+            <h4>
+            <h5 class="remaining" hidden>
+            Stock : {{ this.stock }} Units
+            <h5>
+            {{#if this.stock}}
+            <div class="clearfix">
+               <form action="/add-to-cart/{{this._id}} method="get">
+                  <div class="price pull-left">Rs.{{ this.price }}</div>
+                  <div class="col-sm-6 col-md-6 col-xs-6">
+                     <div class="input-group pull-right">
+                        <span class="input-group-addon">Qty</span>
+                        <input type="number" class="form-control" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
+                     </div>
+                  </div>
+                  <button type="submit" class="btn btn-success">Add to Cart</button>
+               </form>
+            </div>
+            {{ else }}
+            <div class="clearfix">
+               <form action="/add-to-cart/{{this._id}} method="get">
+                  <div class="price pull-left">Rs.{{ this.price }}</div>
+                  <div class="col-sm-6 col-md-6 col-xs-6">
+                     <div class="input-group pull-right">
+                        <span class="input-group-addon" id="basic-addon3">Qty</span>
+                        <input type="number" class="form-control" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
+                     </div>
+                  </div>
+                  <button type="button" class="btn btn-danger">Sold Out</button>
+               </form>
+            </div>
+            {{/if}}                                
+         </div>
+      </div>
+   </div>
+   {{/each}}
+   {{/each}}
+</div>
+<hr class="divider">
+<footer>
+   <p class="pull-right"><a href="#">Back To Top</a></p>
+   <p>Designed By kanjikappa . <a href="#">Privacy</a> . <a href="#">Terms</a></p>
+</footer>

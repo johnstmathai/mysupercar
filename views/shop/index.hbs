@@ -6,134 +6,141 @@
 </div>
 </div>
 <div class="row">
-<div class="col-md-2">
-   <h4>Price Range</h4>
-   <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>1 Lakh - 3 Lakh</h5>
+   <div class="col-md-2">
+      <form action="/filter" id="filter"  method="get">
+         <h4>Price Range</h4>
+         <div class="input-group">
+            <span class="input-group-addon">
+            <input type="checkbox" aria-label="..." name="1lakhto3lakh">
+            </span>
+            <h5>1 Lakh - 3 Lakh</h5>
+         </div>
+         <!-- /input-group -->
+         <div class="input-group">
+            <span class="input-group-addon">
+            <input type="checkbox" aria-label="..." name="3lakhto5lakh">
+            </span>
+            <h5>3 Lakh - 5 Lakh</h5>
+         </div>
+         <!-- /input-group -->
+         <div class="input-group">
+            <span class="input-group-addon">
+            <input type="checkbox" aria-label="..." name="5lakhto10lakh">
+            </span>
+            <h5>5 Lakh - 10 Lakh</h5>
+         </div>
+         <!-- /input-group -->
+         <div class="input-group">
+            <span class="input-group-addon">
+            <input type="checkbox" aria-label="..." name="10lakhto20lakh">
+            </span>
+            <h5>10 Lakh - 20 Lakh</h5>
+         </div>
+         <!-- /input-group -->
    </div>
-   <!-- /input-group -->
-   <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>3 Lakh - 5 Lakh</h5>
-   </div>
-   <!-- /input-group -->
-   <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>5 Lakh - 10 Lakh</h5>
-   </div>
-   <!-- /input-group -->
-   <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>10 Lakh - 20 Lakh</h5>
-   </div>
-   <!-- /input-group -->   
-</div>
-<div class="col-md-2">
+   <div class="col-md-2">
    <h4>Brand</h4>
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Maruti</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Maruti'>
+   </span>
+   <h5>Maruti</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Renault</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Renault'>
+   </span>
+   <h5>Renault</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Hyundai</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Hyundai'>
+   </span>
+   <h5>Hyundai</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Chevrolet</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Chevorlet'>
+   </span>
+   <h5>Chevrolet</h5>
    </div>
-   <!-- /input-group -->  
-</div>
-<div class="col-md-2">
+   <!-- /input-group -->
+   </div>
+   <div class="col-md-2">
    <h4>Fuel Type</h4>
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Fuel Type</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Petrol'>
+   </span>
+   <h5>Petrol</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Fuel Type</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Diesel'>
+   </span>
+   <h5>Diesel</h5>
    </div>
    <!-- /input-group -->
-</div>
-<div class="col-md-2">
+   </div>
+   <div class="col-md-2">
    <h4>Vehicle Type</h4>
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Hatchback</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Hatchback'>
+   </span>
+   <h5>Hatchback</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>Sedan</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='Sedan'>
+   </span>
+   <h5>Sedan</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>SUV</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='SUV'>
+   </span>
+   <h5>SUV</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>MUV</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='MUV'>
+   </span>
+   <h5>MUV</h5>
    </div>
-   <!-- /input-group --> 
-</div>
-<div class="col-md-2">
+   <!-- /input-group -->
+   </div>
+   <div class="col-md-2">
    <h4>Mileage</h4>
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>10 Kmpl - 15 Kmpl</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='10to15kmpl'>
+   </span>
+   <h5>10 Kmpl - 15 Kmpl</h5>
    </div>
    <!-- /input-group -->
    <div class="input-group">
-      <span class="input-group-addon">
-      <input type="checkbox" aria-label="...">
-      </span>
-      <h5>15 Kmpl and above</h5>
+   <span class="input-group-addon">
+   <input type="checkbox" aria-label="..." name='15andabove'>
+   </span>
+   <h5>15 Kmpl and above</h5>
    </div>
    <!-- /input-group -->
+   </div>
+   </form>
 </div>
+<br>
+<div class="row text-center">
+   <button type="submit" form="filter" class="btn btn-success">Apply Filter</button>
 </div>
+<br>
 <div class="row">
    {{# each products }}
    {{# each this }}
@@ -183,6 +190,11 @@
 </div>
 <hr class="divider">
 <footer>
-   <p class="pull-right"><a href="#">Back To Top</a></p>
-   <p>Designed By kanjikappa . <a href="#">Privacy</a> . <a href="#">Terms</a></p>
+   <p class="pull-right">
+      <a href="#">Back To Top</a>
+   </p>
+   <p>Designed By kanjikappa . 
+      <a href="#">Privacy</a> . 
+      <a href="#">Terms</a>
+   </p>
 </footer>

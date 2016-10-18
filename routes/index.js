@@ -38,7 +38,7 @@ router.get('/', function (req, res, next) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         //console.log(productChunks);
-        res.render('shop/index', {title: 'Cucucart.com', products: productChunks, successMsg: successMsg, noMessages: !successMsg});
+        res.render('shop/index', {title: 'TheCar.com', products: productChunks, successMsg: successMsg, noMessages: !successMsg});
     });
 });
 
@@ -51,6 +51,273 @@ router.get('/trackmyorders', isLoggedIn, function(req, res, next) {
             //console.log(orders);
             res.render('shop/trackmyorder', {orders: orders});
         }
+    });
+});
+
+router.get('/filter', function(req, res, next) {
+	//var splitParams = (req.params.id).split(" ");
+	
+	console.log(req.url);
+	var regex = /[?&]([^=#]+)=([^&#]*)/g,
+    url = req.url,
+    params = {},
+    match;
+	while(match = regex.exec(url)) {
+		params[match[1]] = match[2];
+	}
+	console.log(params);
+	//console.log(splitParams);
+	console.log("Filter applied");
+    var successMsg = req.flash('success')[0];
+    Product.find(function (err, docs) {
+        var productChunks = [];
+        var chunkSize = 1;
+        var validPriceRange;
+        var validBrand;
+        var validFuelType;
+        var validVehicleType;
+        var validMileage;
+        for (var i = 0; i < docs.length; i += chunkSize) {
+        	validPriceRange = false;
+        	if ( 1 < docs[i].price && 3 > docs[i].price )
+        	{
+        		if( params["1lakhto3lakh"]!=undefined &&  params["1lakhto3lakh"]=="on" )
+        		{
+        			validPriceRange = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Price between 1 lakh to 3 lakh");
+        	}
+        	else if ( 3 < docs[i].price && 5 > docs[i].price )
+        	{
+        		if( params["3lakhto5lakh"]!=undefined &&  params["3lakhto5lakh"]=="on" )
+        		{
+        			validPriceRange = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Price between 3 lakh to 5 lakh");
+        	}
+        	else if ( 5 < docs[i].price && 10 > docs[i].price )
+        	{
+        		if( params["5lakhto10lakh"]!=undefined &&  params["5lakhto10lakh"]=="on" )
+        		{
+        			validPriceRange = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Price between 5 lakh to 10 lakh");
+        	}
+        	else if ( 10 < docs[i].price && 20 > docs[i].price )
+        	{
+        		if( params["10lakhto20lakh"]!=undefined &&  params["10lakhto20lakh"]=="on" )
+        		{
+        			validPriceRange = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+
+        		console.log("Price between 10 lakh to 20 lakh");        		
+        	}
+        	//Brand
+        	validBrand = false;
+        	if ( "Maruti" == docs[i].brand )
+        	{
+        		if( params["Maruti"]!=undefined &&  params["Maruti"]=="on" )
+        		{
+        			validBrand = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Brand is Maruti");
+        	}
+        	else if (  "hyundai" == docs[i].brand )
+        	{
+        		if( params["hyundai"]!=undefined &&  params["hyundai"]=="on" )
+        		{
+        			validBrand = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Brand is hyundai");
+        	}
+        	else if (  "chevorlet" == docs[i].brand )
+        	{
+        		if( params["chevorlet"]!=undefined &&  params["chevorlet"]=="on" )
+        		{
+        			validBrand = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Brand is chevorlet");
+        	}
+        	else if (  "Renault" == docs[i].brand )
+        	{
+        		if( params["Renault"]!=undefined &&  params["Renault"]=="on" )
+        		{
+        			validBrand = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+
+        		console.log("Brand is Renault");        		
+        	}
+
+        	//FuelType
+           	validFuelType = false;
+        	if ( "Diesel" == docs[i].fueltype )
+        	{
+        		if( params["Diesel"]!=undefined &&  params["Diesel"]=="on" )
+        		{
+        			validFuelType = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Fuel Type is Diesel");
+        	}
+        	else if (  "Petrol" == docs[i].fueltype )
+        	{
+        		if( params["Petrol"]!=undefined &&  params["Petrol"]=="on" )
+        		{
+        			validFuelType = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("FuelType is Petrol");
+        	}
+
+        	//Vehicle Type
+        	validVehicleType = false;
+        	if ( "Hatchback" == docs[i].vehicleType )
+        	{
+        		if( params["Hatchback"]!=undefined &&  params["Hatchback"]=="on" )
+        		{
+        			validVehicleType = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("vehicleType is Hatchback");
+        	}
+        	else if (  "Sedan" == docs[i].vehicleType )
+        	{
+        		if( params["Sedan"]!=undefined &&  params["Sedan"]=="on" )
+        		{
+        			validVehicleType = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("vehicleType is Sedan");
+        	}
+        	else if (  "SUV" == docs[i].vehicleType )
+        	{
+        		if( params["SUV"]!=undefined &&  params["SUV"]=="on" )
+        		{
+        			validVehicleType = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("vehicleType is SUV");
+        	}
+        	else if (  "MUV" == docs[i].vehicleType )
+        	{
+        		if( params["MUV"]!=undefined &&  params["MUV"]=="on" )
+        		{
+        			validVehicleType = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+
+        		console.log("vehicleType is MUV");        		
+        	}
+        	else
+        	{
+        		console.log("ERROR:No matching vehicle type");
+        	}
+        	
+        	//Mileage
+           	validMileage = false;
+        	if ( 10 <= docs[i].mileage && 15 >= docs[i].mileage)
+        	{
+        		if( params["10to15kmpl"]!=undefined &&  params["10to15kmpl"]=="on" )
+        		{
+        			validMileage = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Mileage is 10to15kmpl");
+        	}
+        	else if (  15 < docs[i].mileage )
+        	{
+        		if( params["15andabove"]!=undefined &&  params["15andabove"]=="on" )
+        		{
+        			validMileage = true;
+        			console.log("Inside Filter");
+        		}
+        		else
+        		{
+        			console.log("Outside Filter");
+        		}
+        		console.log("Mileage is 15andabove");
+        	}
+        	console.log(docs[i].price);
+	        if (true == validPriceRange
+				&& true == validBrand
+				&& true == validFuelType
+				&& true == validVehicleType
+				&& true == validMileage)
+       		{
+                productChunks.push(docs.slice(i, i + chunkSize));       		
+       		}
+        }
+        //console.log(productChunks);
+        console.log(docs);
+        res.render('shop/index', {title: 'TheCar.com', products: productChunks, successMsg: successMsg, noMessages: !successMsg, '1lakhto3lakh':'on'});
     });
 });
 

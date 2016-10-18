@@ -17,6 +17,7 @@ var products = [
         seaters:5,
         fueltype:'Diesel',
         transmission:'Manual',
+        vehicleType:'Hatchback',
         stock: 40
     })
  ];

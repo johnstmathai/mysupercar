@@ -6,7 +6,7 @@ var Product = require('../models/product');
 var Order = require('../models/order');
 
 var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport('smtps://mailtocucucart%40gmail.com:kanjikappa@smtp.gmail.com');
+var transporter = nodemailer.createTransport('smtps://thecarbooking%40gmail.com:kanjikappa@smtp.gmail.com');
 
 //for parsing form inputs
 var bodyParser = require('body-parser');
@@ -20,11 +20,10 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 // setup e-mail data with unicode symbols 
 var mailOptions = {
-    from: '"Cucucart.com" <mailtocucucart@gmail.com>', // sender address 
+    from: '"thecar.com" <thecarbooking@gmail.com>', // sender address 
     to: 'palaniappan88@gmail.com', // list of receivers
-    bcc: 'johnstmathai@gmail.com, palaniappan88@gmail.com, mathaity55@gmail.com', 
-    subject: 'Your Cucucart.com Order Placed', // Subject line 
-    //text: 'Your Cucucart.com Order Placed' // plaintext body 
+    bcc: 'johnstmathai@gmail.com, palaniappan88@gmail.com', 
+    subject: 'Your booking for test ride is successful', // Subject line 
     html: '<b>Auto Generated Test Mail</b>' // html body 
 };
 
@@ -326,30 +325,30 @@ router.post('/checkout', isLoggedIn, function(req, res, next) {
 
 
                 var source2 = '<div class="container">' + 
-                               '<h3>Ordered Items</h3>' + 
+                               '<h3>Your Booking</h3>' + 
                                '<table>' + 
                                   '<thead>' + 
                                    '<tr>' + 
-                                     '<th>Product</th>' + 
-                                     '<th>Quantity</th>' + 
-                                     '<th>Price</th>' + 
-                                     '<th>Total</th>' + 
+                                     '<th>Cars</th>' + 
+                                     '<th></th>' + 
+                                     '<th></th>' + 
+                                     '<th></th>' + 
                                    '</tr>' + 
                                  '</thead>' + 
                                  '<tbody>' + 
                                     '{{#mycart}}' +
                                      '<tr>' + 
                                        '<td><center>{{item.title}} - {{item.description}}</center></td>' + 
-                                       '<td><center>{{qty}}</center></td>' + 
-                                       '<td><center>Rs.{{item.price}}</center></td>' + 
-                                       '<td><center>Rs.{{price}}</center></td>' + 
+                                       '<td hidden><center></center></td>' + 
+                                       '<td hidden><center></center></td>' + 
+                                       '<td hidden><center></center></td>' + 
                                       '</tr>' + 
                                    '{{/mycart}}' +
                                     '<tr>' + 
                                        '<td></td>' + 
                                        '<td></td>' + 
-                                       '<td><h4>Total Price</h4></td>' + 
-                                       '<td>Rs.{{totalPrice}}</td>' + 
+                                       '<td><h4 hidden></h4></td>' + 
+                                       '<td hidden></td>' + 
                                      '</tr>' + 
                                      '<tr> </tr>' +
                                       '<tr>' + 
@@ -372,6 +371,7 @@ router.post('/checkout', isLoggedIn, function(req, res, next) {
                                       '</tr>' +
                                  '</tbody>' + 
                                '</table>' + 
+                               '<h4> The car will come to your door step for test drive within 24 hrs between 10 am to 4 pm. Please contact our customer care for further enquiries</h4>' +
                              '</div>';
 
                 var template = Handlebars.compile(source2);

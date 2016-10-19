@@ -5,9 +5,7 @@
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>Quantity</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
+                        <th class="text-center"> </th>
                         <th class="text-center"> </th>
                         <th class="text-center"> </th>
                         <th class="text-center"> </th>
@@ -26,18 +24,11 @@
                                         <span>Net Quantity: </span><span class="text-success"><strong>{{ this.item.description }}</strong></span>
                                 </div>
                             </td>
+
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
         
-                             <td class="col-sm-1 col-md-1" style="text-align: center">
-                                 <span class="badge">{{ this.qty }}</span>
-                             </td>
-
-                             <td class="col-sm-1 col-md-1" style="text-align: center">
-                                 <h4><span class="label label-default">Rs.{{ this.item.price }}</span></h4>
-                             </td>
-
-                             <td class="col-sm-1 col-md-1" style="text-align: center">
-                                 <h4><span class="label label-success">Rs.{{ this.price }}</span></h4>
-                             </td>
 
                             <td class="col-sm-1 col-md-1>
                                 <div class="btn-group-vertical text-left">
@@ -46,14 +37,8 @@
                                     </a>
                                     <a href="/reduce/{{this.item._id}}" class="btn btn-default btn-xs"> 
                                          <span class="glyphicon glyphicon-minus-sign"></span>
-                                          Remove One
+                                          Remove
                                     </a>
-
-                                    <a href="/remove/{{this.item._id}}" class="btn btn-default btn-xs"> 
-                                         <span class="glyphicon glyphicon-remove"></span>
-                                          Remove All 
-                                    </a>
-
                                 </div>
                             </td>
                             </tr>
@@ -62,8 +47,8 @@
                             <td>   </td>
                             <td>   </td>
                             <td>   </td>
-                            <td><h3>Total</h3></td>
-                            <td class="text-right"><h3><strong>Rs.{{ totalPrice }}</strong></h3></td>
+                            <td></td>
+                            <td class="text-right hidden"><h3><strong>Rs.{{ totalPrice }}</strong></h3></td>
                         </tr>
                         <tr>
                             <td>   </td>
@@ -72,7 +57,7 @@
                             <td>
                                <a href="/" class="btn btn-default"> 
                                     <span class="glyphicon glyphicon-shopping-cart"></span>
-                                     Continue Shopping 
+                                     Continue Booking 
                                </a>
                             </td>
                             <td>

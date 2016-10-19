@@ -142,57 +142,63 @@
 </div>
 <br>
 <div class="row">
-   {{# each products }}
-   {{# each this }}
-   <div class="col-xs-6 col-sm-6 col-md-4 text-center">
-      <div class="thumbnail">
-      	<a href="/productpage/{{this._id}}">
-         <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
-         </a>
-         <div class="caption" >
-            <h4>{{ this.title }}</h4>
-            <h4 class="text-danger">
-            {{ this.description }}
-            <h4>
-            <h5 class="remaining" hidden>
-            Stock : {{ this.stock }} Units
-            <h5>
-            {{#if this.stock}}
-            <div class="clearfix">
-               <form action="/add-to-cart/{{this._id}} method="get">
-                  <div class="price">Rs.{{ this.price }} Lakh</div>
-                  <div class="col-sm-6 col-md-6 col-xs-6">
-                     <div class="input-group pull-right">
-                        <span class="input-group-addon hidden" >Qty</span>
-                        <input type="number"  class="form-control hidden" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
-                     </div>
-                  </div>
-                  <br>
-                  <br>
-                  <div class="row">
-                  	<button type="submit" class="btn btn-success">Book for Test Ride</button>
-               	  </div>
-               </form>
-            </div>
-            {{ else }}
-            <div class="clearfix">
-               <form action="/add-to-cart/{{this._id}} method="get">
-                  <div class="price pull-left">Rs.{{ this.price }}</div>
-                  <div class="col-sm-6 col-md-6 col-xs-6">
-                     <div class="input-group pull-right">
-                        <span class="input-group-addon" id="basic-addon3">Qty</span>
-                        <input type="number" class="form-control" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
-                     </div>
-                  </div>
-                  <button type="button" class="btn btn-danger">Sold Out</button>
-               </form>
-            </div>
-            {{/if}}                                
-         </div>
-      </div>
-   </div>
-   {{/each}}
-   {{/each}}
+   {{#if products }}
+	   {{# each products }}
+	   {{# each this }}
+	   <div class="col-xs-6 col-sm-6 col-md-4 text-center">
+	      <div class="thumbnail">
+	      	<a href="/productpage/{{this._id}}">
+	         <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
+	         </a>
+	         <div class="caption" >
+	            <h4>{{ this.title }}</h4>
+	            <h4 class="text-danger">
+	            {{ this.description }}
+	            <h4>
+	            <h5 class="remaining" hidden>
+	            Stock : {{ this.stock }} Units
+	            <h5>
+	            {{#if this.stock}}
+	            <div class="clearfix">
+	               <form action="/add-to-cart/{{this._id}} method="get">
+	                  <div class="price">Rs.{{ this.price }} Lakh</div>
+	                  <div class="col-sm-6 col-md-6 col-xs-6">
+	                     <div class="input-group pull-right">
+	                        <span class="input-group-addon hidden" >Qty</span>
+	                        <input type="number"  class="form-control hidden" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
+	                     </div>
+	                  </div>
+	                  <br>
+	                  <br>
+	                  <div class="row">
+	                  	<button type="submit" class="btn btn-success">Book for Test Ride</button>
+	               	  </div>
+	               </form>
+	            </div>
+	            {{ else }}
+	            <div class="clearfix">
+	               <form action="/add-to-cart/{{this._id}} method="get">
+	                  <div class="price pull-left">Rs.{{ this.price }}</div>
+	                  <div class="col-sm-6 col-md-6 col-xs-6">
+	                     <div class="input-group pull-right">
+	                        <span class="input-group-addon" id="basic-addon3">Qty</span>
+	                        <input type="number" class="form-control" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
+	                     </div>
+	                  </div>
+	                  <button type="button" class="btn btn-danger">Sold Out</button>
+	               </form>
+	            </div>
+	            {{/if}}                                
+	         </div>
+	      </div>
+	   </div>
+	   {{/each}}
+	   {{/each}}
+	{{else}}
+	<div class="text-center text-danger">
+		<h3> No available cars in this selected filter </h3>
+	</div>
+	{{/if}}
 </div>
 <hr class="divider">
 <footer>

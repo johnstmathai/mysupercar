@@ -144,7 +144,7 @@
 <div class="row">
    {{# each products }}
    {{# each this }}
-   <div class="col-xs-6 col-sm-6 col-md-4">
+   <div class="col-xs-6 col-sm-6 col-md-4 text-center">
       <div class="thumbnail">
       	<a href="/productpage/{{this._id}}">
          <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
@@ -160,14 +160,18 @@
             {{#if this.stock}}
             <div class="clearfix">
                <form action="/add-to-cart/{{this._id}} method="get">
-                  <div class="price pull-left">Rs.{{ this.price }}</div>
+                  <div class="price">Rs.{{ this.price }} Lakh</div>
                   <div class="col-sm-6 col-md-6 col-xs-6">
                      <div class="input-group pull-right">
-                        <span class="input-group-addon">Qty</span>
-                        <input type="number" class="form-control" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
+                        <span class="input-group-addon hidden" >Qty</span>
+                        <input type="number"  class="form-control hidden" id="qty" name ="qty" aria-describedby="basic-addon3" value='1' min="1" max="5" >
                      </div>
                   </div>
-                  <button type="submit" class="btn btn-success">Add to Cart</button>
+                  <br>
+                  <br>
+                  <div class="row">
+                  	<button type="submit" class="btn btn-success">Book for Test Ride</button>
+               	  </div>
                </form>
             </div>
             {{ else }}

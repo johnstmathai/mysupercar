@@ -146,7 +146,9 @@
    {{# each this }}
    <div class="col-xs-6 col-sm-6 col-md-4">
       <div class="thumbnail">
+      	<a href="/productpage/{{this._id}}">
          <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
+         </a>
          <div class="caption" >
             <h4>{{ this.title }}</h4>
             <h4 class="text-danger">

@@ -1,0 +1,28 @@
+{{# each orders }}
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{# each this.cart.items }}
+                    <li class="list-group-item">
+                        <span class="badge">{{ this.qty }}</span>
+                        {{ this.item.title }}
+                        <span class="label label-success">Rs.{{ this.price }}</span>
+                    </li>
+                    {{/each}}
+                    <li class="list-group-item">
+                        <span class="badge">{{ this.cart.totalQty }}</span>
+                        <strong>Total</strong>
+                        <span class="label label-success">Rs.{{ this.cart.totalPrice }}</span>
+                    </li>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                            <div class="row"> <strong>Address : {{ this.address }}</strong> </div>
+                            <div class="row"> <strong>Name : {{ this.name }}</strong> </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{{/each}}

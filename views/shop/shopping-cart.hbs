@@ -1,0 +1,110 @@
+{{# if products }}
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center"> </th>
+                        <th class="text-center"> </th>
+                        <th class="text-center"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ul class="list-group">
+                        {{# each products }}
+                            <tr>
+
+                            <td class="col-sm-6 col-md-4">
+                                    <img  src="{{ this.item.thumbnail }}"alt="..." class="img-responsive > </a>
+                                    <p> </p
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">{{ this.item.title }}</a></h4>
+                                        <span>Net Quantity: </span><span class="text-success"><strong>{{ this.item.description }}</strong></span>
+                                </div>
+                            </td>
+        
+                             <td class="col-sm-1 col-md-1" style="text-align: center">
+                                 <span class="badge">{{ this.qty }}</span>
+                             </td>
+
+                             <td class="col-sm-1 col-md-1" style="text-align: center">
+                                 <h4><span class="label label-default">Rs.{{ this.item.price }}</span></h4>
+                             </td>
+
+                             <td class="col-sm-1 col-md-1" style="text-align: center">
+                                 <h4><span class="label label-success">Rs.{{ this.price }}</span></h4>
+                             </td>
+
+                            <td class="col-sm-1 col-md-1>
+                                <div class="btn-group-vertical text-left">
+                                    <a href="/add/{{this.item._id}}" class="btn btn-default btn-xs"> 
+                                         <span class="glyphicon glyphicon-plus-sign text-left"></span> Add
+                                    </a>
+                                    <a href="/reduce/{{this.item._id}}" class="btn btn-default btn-xs"> 
+                                         <span class="glyphicon glyphicon-minus-sign"></span>
+                                          Remove One
+                                    </a>
+
+                                    <a href="/remove/{{this.item._id}}" class="btn btn-default btn-xs"> 
+                                         <span class="glyphicon glyphicon-remove"></span>
+                                          Remove All 
+                                    </a>
+
+                                </div>
+                            </td>
+                            </tr>
+                        {{/each}}
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td><h3>Total</h3></td>
+                            <td class="text-right"><h3><strong>Rs.{{ totalPrice }}</strong></h3></td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
+                               <a href="/" class="btn btn-default"> 
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                                     Continue Shopping 
+                               </a>
+                            </td>
+                            <td>
+                               <a href="/checkout" class="btn btn-success"> 
+                                    <span class="glyphicon glyphicon-play"></span>
+                                    Checkout 
+                               </a>
+                            </td>
+                        </tr>
+                    </ul>
+                </tbody>
+            </table>    
+        </div>
+    </div>
+{{ else }}
+    <div class="row text-center">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <h2>No Items in Cart</h2>
+        </div>
+    </div>
+    <div class="text-center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   <a href="/" class="btn btn-default"> 
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+         Continue Shopping 
+   </a>
+   </div>
+
+
+{{/if}}
+

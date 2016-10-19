@@ -9,6 +9,7 @@ var products = [
         imagePath: 'images/baleno.jpg',
         thumbnail: 'images/Mathan_tn.jpg',
         title: 'Maruti Baleno',
+        brand: 'Maruti',
         description: '1.3 ZETA',
         price: 8.6,
         mileage:27.4,
@@ -16,8 +17,8 @@ var products = [
         bhp:74,
         seaters:5,
         fueltype:'Diesel',
-        transmission:'Manual',
         vehicleType:'Hatchback',
+        transmission:'Manual',
         stock: 40
     })
  ];

@@ -524,7 +524,7 @@ router.get('/filter', function(req, res, next) {
         	//Brand
         	if (params["Maruti"] == undefined
         			&& params["Hyundai"] == undefined
-        			&& params["Chevorlet"] == undefined
+        			&& params["Chevrolet"] == undefined
         			&& params["Renault"] == undefined )
         	{
         		validBrand = true;
@@ -558,9 +558,9 @@ router.get('/filter', function(req, res, next) {
         			}
         			console.log("Brand is Hyundai");
         		}
-        		else if (  "Chevorlet" == docs[i].brand )
+        		else if (  "Chevrolet" == docs[i].brand )
         		{
-        			if( params["Chevorled"]!=undefined &&  params["Chevorled"]=="on" )
+        			if( params["Chevrolet"]!=undefined &&  params["Chevrolet"]=="on" )
         			{
         				validBrand = true;
         				console.log("Inside Filter");
@@ -569,7 +569,7 @@ router.get('/filter', function(req, res, next) {
         			{
         				console.log("Outside Filter");
         			}
-        			console.log("Brand is Chevorled");
+        			console.log("Brand is Chevrolet");
         		}
         		else if (  "Renault" == docs[i].brand )
         		{
